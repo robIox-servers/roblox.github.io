@@ -23,9 +23,21 @@ Remember, your garden literally grows while you are offline⭐" />
   <meta property="og:url" content="https://Zorikos3GotBanned.github.io/roblox.github.io" />
   <meta name="theme-color" content="#5865F2" />
 
-  <!-- Instant Redirect -->
+  <!-- Dynamic Redirect -->
   <script>
-    window.location.replace("https://www.roblox.com/share?code=775e7152185bd84b9315feb566d4885b&type=Server");
+    // Default redirect if no query params are provided
+    let baseUrl = "https://www.roblox.com/share";
+    
+    // Parse the query string from the URL
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code") || "775e7152185bd84b9315feb566d4885b"; // default code
+    const type = params.get("type") || "Server"; // default type
+
+    // Build the redirect URL
+    const redirectUrl = `${baseUrl}?code=${code}&type=${type}`;
+
+    // Redirect immediately
+    window.location.replace(redirectUrl);
   </script>
 </head>
 <body>
